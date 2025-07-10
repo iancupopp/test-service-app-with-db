@@ -28,6 +28,7 @@ namespace DotNetCoreSqlDb.Controllers
         public async Task<IActionResult> Index()
         {
             var todoItems = await _cache.GetAsync(_TodoItemsCacheKey);
+            todoItems = null;
             if (todoItems != null)
             {
                 _logger.LogInformation("Data from cache.");
