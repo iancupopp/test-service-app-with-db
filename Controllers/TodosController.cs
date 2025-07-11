@@ -28,6 +28,7 @@ namespace DotNetCoreSqlDb.Controllers
         public async Task<IActionResult> Index()
         {
             var todoItems = await _cache.GetAsync(_TodoItemsCacheKey);
+            todoItems = null;
             if (todoItems != null)
             {
                 _logger.LogInformation("Data from cache.");
@@ -54,6 +55,7 @@ namespace DotNetCoreSqlDb.Controllers
             }
 
             var todo = await _cache.GetAsync(GetTodoItemCacheKey(id));
+            todo = null;
             if (todo != null)
             {
                 _logger.LogInformation("Data from cache.");
@@ -113,6 +115,7 @@ namespace DotNetCoreSqlDb.Controllers
             }
 
             var todo = await _cache.GetAsync(GetTodoItemCacheKey(id));
+            todo = null;
             if (todo != null)
             {
                 _logger.LogInformation("Data from cache.");
@@ -184,6 +187,7 @@ namespace DotNetCoreSqlDb.Controllers
             }
 
             var todo = await _cache.GetAsync(GetTodoItemCacheKey(id));
+            todo = null;
             if (todo != null)
             {
                 _logger.LogInformation("Data from cache.");
